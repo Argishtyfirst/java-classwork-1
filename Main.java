@@ -1,16 +1,16 @@
-
 import java.util.Arrays;
 import java.util.Scanner;
+
 class Main{
 
 	public static void main(String[] args){
 
 		Scanner scanner = new Scanner(System.in);
-		int eid = scanner.nextInt();
+		int arraySize = scanner.nextInt();
 
-		int[] arr = new int[eid];
+		int[] arr = new int[arraySize];
 
-		for(int i=0; i < eid; i++){
+		for(int i=0; i < arraySize; i++){
 			arr[i]=scanner.nextInt();
 		}
 
