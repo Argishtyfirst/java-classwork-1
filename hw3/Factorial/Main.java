@@ -1,18 +1,18 @@
 import java.util.Scanner;
 
 class Main{
-	static int fibonacci(int n){
-		if(n<=2){
+	static int factorial(int n){
+		if(n==1){
 			return 1;
 		}else{
-			return fibonacci(n-1)+fibonacci(n-2);
+			return n * factorial(n-1);
 		}
 	}
 	public static void main(String[] args){
 		Scanner number = new Scanner(System.in);
 		System.out.println("Enter a number: ");
 		int n = number.nextInt();
-		int fib = fibonacci(n);
-		System.out.println(fib);
+		int fact = factorial(n);
+		System.out.println(fact);
 	}
 }
