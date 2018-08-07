@@ -1,10 +1,13 @@
 import java.util.Scanner;
 
 class Main{
-	public static void main(String... args){
+	public static void main(String... args) throws Exception{
 		Scanner scanner = new Scanner(System.in);
 		System.out.println("Choose Type: Chess - 0, Border - 1, SubType - 2");
 		int type = scanner.nextInt();
+		if(type>2 || type<0){
+				throw new Exception("Type must be either 0, 1 or 2"); 
+		}
 		System.out.println("Value of m");
 		int m = scanner.nextInt();
 		System.out.println("Value of n");
@@ -15,6 +18,9 @@ class Main{
 		if(type == 2){
 			System.out.println("Value of offset");
 			offsetValue = scanner.nextInt();
+			if(offsetValue>m/2 || offsetValue>n/2 || offsetValue<0){
+				throw new Exception("Offset value must be less than half of each side and greater or equal to 0!"); 
+			}
 		}
 		if(type == 0){
 			for(int i = 0; i<=m; i++){
@@ -34,10 +40,12 @@ class Main{
 				}
 			}
 		}else if(type == 1 || type == 2){
-			for(int i = 0; i<=m; i++){
-				for(int j = 0; j<=n; j ++){
-					if(i>=0+offsetValue && i<=m-offsetValue){
-						if(((j>=0+offsetValue && j<=n-offsetValue) && (i==0+offsetValue || i==m-offsetValue)) || (j==0+offsetValue || j==n-offsetValue)){
+			for(int i = 0; i <= m; i++){
+				for(int j = 0; j <= n; j ++){
+					if(i >= 0+offsetValue && i <= m-offsetValue){
+						if(((j >= 0+offsetValue && j <= n-offsetValue) && 
+							(i == 0+offsetValue || i == m-offsetValue)) || 
+							(j == 0+offsetValue || j == n-offsetValue)){
 							System.out.print(fill);
 						}else{
 							System.out.print(empty);
